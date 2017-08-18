@@ -6,44 +6,68 @@ import {
   Text,
   View,
   Image,
-  TextInput
+  TextInput,
+  TouchableOpacity
 } from 'react-native';
 import Button from 'react-native-button';
+import FloatingLabel  from 'react-native-floating-labels'
 
 class Password extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={Style.container}>
 
-        <View>
-            <Text style={styles.title}>Create a password</Text>
-            <Text style={styles.profilenote}>Your password must be 8 or more characters long.
+        <View style={Style.halfHeight}>
+            <Text style={Style.title}>Create a password</Text>
+            <Text style={Style.profilenote}>Your password must be 8 or more characters long.
                Do not use any common passwords,repitition or sequencess. Trying making it longer or adding symbols. 
             </Text>
         </View>
-        <TextInput
+        <View style={Style.quarterHeight}>
+       
+       {/* <TextInput
          placeholder="Password"
          placeholderTextColor="rgba(255,255,255,0.7)"
          style={styles.input}
-         />
-          <TextInput
+         />*/}
+         <FloatingLabel 
+                    labelStyle={Style.labelInput}
+                    inputStyle={Style.input}
+                    style={Style.formInput}
+                    onBlur={this.onBlur}
+                    returnKeyType="next"
+                    autoFocus={true}
+                    secureTextEntry={true} 
+                >Password</FloatingLabel>
+        <FloatingLabel 
+                    labelStyle={Style.labelInput}
+                    inputStyle={Style.input}
+                    style={Style.formInput}
+                    onBlur={this.onBlur}
+                    returnKeyType="next"
+                    autoFocus={true}
+                    secureTextEntry={true} 
+                >Comfrim Password</FloatingLabel>
+         {/* <TextInput
          placeholder="Comfrim Password"
          placeholderTextColor="rgba(255,255,255,0.7)"
           style={styles.input}
-         />
-       <Button
-    containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
-    style={{fontSize: 20, color: 'green'}}>
-    Signup!
-  </Button>
-     
+         />*/}
+       
+      <TouchableOpacity style={Style.signupbtnContainer}>
+                    <Text style={Style.buttonText}
+                    >Sign Up</Text>
+        </TouchableOpacity>
+        
+        </View>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
+const Style = StyleSheet.create({
   container: {
+    flex:1,
     padding: 20,
      backgroundColor:'#008389',
   },
@@ -53,21 +77,34 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     paddingBottom:20,
   },
-
+halfHeight:{
+        flex: 2,
+    },
+ quarterHeight: {
+        flex: 2,
+    },
   /*textinput*/
 input: {
-  height: 50,
-  backgroundColor: 'rgba(255,255,255,0.2)',
-  marginBottom: 20,
-  color:'#fff',
-  paddingHorizontal: 10,
-  borderRadius: 4,
+        borderWidth: 0,
+        color:'#fff',
+        fontSize:15
  },
  rightarrContainer:{
     alignItems: 'flex-end',
     paddingTop: 20,
  },
- 
+ labelInput: {
+        color: '#fff',
+        fontSize:12
+   
+        },
+        formInput: {    
+          // borderBottomWidth: 1.5, 
+           borderColor:'#fff',
+           opacity:0.7
+           // marginLeft: 20,
+            //borderColor: '#333',       
+        },
  profilenote: {
    fontSize: 14,
    color: '#fff',
@@ -75,7 +112,19 @@ input: {
   paddingBottom: 30,
    
 },
- 
+ signupbtnContainer:{
+   marginTop:20,
+        borderRadius:10,
+        paddingVertical:10,
+        backgroundColor:'#fff'
+ },
+ buttonText:{
+   color:'#008489',
+   fontSize:20,
+   textAlign:'center',
+
+
+ }
  
  
 });

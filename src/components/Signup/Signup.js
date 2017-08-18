@@ -68,8 +68,8 @@ class Signup extends Component {
                 >Phone Number</FloatingLabel>
          <View style={Style.rightarrContainer}>
          
-          <TouchableOpacity>
-                    <Text style={Style.loginbtnText}
+          <TouchableOpacity style={Style.nextContainer}>
+                    <Text style={Style.nextbtnText}
                     onPress={this.nextPress.bind(this)}
                     >Next ></Text>
                 </TouchableOpacity>
@@ -115,6 +115,18 @@ input: {
    width: 45,
    height: 45,
    opacity: 0.2,
+ },
+ nextContainer:{
+        paddingVertical:10,
+        borderRadius:10,
+        borderColor:'white',
+        borderWidth:1.5,
+        width:'100%'
+ },
+ nextbtnText: {
+  textAlign:'center',
+        color:'#fff',
+        fontSize:20,
  },
  labelInput: {
         color: '#fff',
